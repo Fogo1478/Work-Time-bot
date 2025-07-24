@@ -184,7 +184,7 @@ from datetime import datetime
 import pytz
 
 # 🔐 TOKEN va ID lar
-TOKEN = "7759525886:AAHKP7U-hU1Q-Qxs2XmZ8_ZQm6D-WqcDwBc"
+TOKEN = "7759525886:AAFLSwjz_8VFA3XYL3LxhWivYrauZZTAJIo"
 admin_id = 2028247200
 log_chat_id = -1002143893100  # Faollashtirildi
 
