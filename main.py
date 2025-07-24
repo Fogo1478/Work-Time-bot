@@ -172,6 +172,11 @@
 # if __name__ == "__main__":
 #     asyncio.run(main())
 
+
+import os
+from fastapi import FastAPI
+import uvicorn
+
 import logging
 import asyncio
 import csv
@@ -184,7 +189,9 @@ from datetime import datetime
 import pytz
 
 # 🔐 TOKEN va ID lar
-TOKEN = "7759525886:AAFLSwjz_8VFA3XYL3LxhWivYrauZZTAJIo"
+
+TOKEN = "7759525886:AAGC1tfv3pFGB_qkPtfJ7UZ2-K38K4mIsGU"
+
 admin_id = 2028247200
 log_chat_id = -1002143893100  # Faollashtirildi
 
@@ -194,6 +201,8 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
+
+app = FastAPI()
 
 # Hodimlar ro'yxati
 employee_names = {
@@ -381,5 +390,21 @@ async def finalize_checkout(msg: Message, now: datetime):
 async def main():
     await dp.start_polling(bot)
 
+
+
+
+# if __name__ == "__main__":
+#     asyncio.run(main())
+
+@app.get("/")
+def root():
+    return {"status": "bot is running"}
+
+@app.on_event("startup")
+async def on_startup():
+    asyncio.create_task(dp.start_polling(bot))
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+
