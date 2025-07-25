@@ -190,7 +190,7 @@ import pytz
 
 # 🔐 TOKEN va ID lar
 
-TOKEN = "7759525886:AAGC1tfv3pFGB_qkPtfJ7UZ2-K38K4mIsGU"
+TOKEN = "7759525886:AAHYOL7DCL4fPR2aP7TgABv7PFUXLTjGio0"
 
 admin_id = 2028247200
 log_chat_id = -1002143893100  # Faollashtirildi
