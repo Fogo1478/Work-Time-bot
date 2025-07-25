@@ -368,7 +368,7 @@ async def finalize_checkout(msg: Message, now: datetime):
     #                     reply_markup=only_start_keyboard)
     #     return
 
-    times["end"] = now
+    times["end"] = now or 0
     delta = times["end"] - times["start"]
     soat = delta.seconds // 3600
     minut = (delta.seconds % 3600) // 60
